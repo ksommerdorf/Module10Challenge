@@ -1,1 +1,2 @@
-# Module10Challenge
+# Overview of Project
+Robin, a junior data analyst, does freelance astronomy work in her spare time. She often reads up on space related news and has requested help on building a website about Mars. She wants to gather data about the Mission to Mars from all over the web and display it in a central location without spending her free time gathering the data manually. This project helps her achieve the goal through Python script that can navigate the webpages, store the data into a database, and upload the data to a website.
