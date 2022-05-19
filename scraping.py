@@ -5,6 +5,27 @@ import pandas as pd
 import datetime as dt
 from webdriver_manager.chrome import ChromeDriverManager
 
+def hemispheres(browser):
+
+    url = 'https://marshemispheres.com/'
+
+    browser.visit(url)
+
+    hemisphere_image_urls = []
+
+    for i in range(4):
+        #create empty dictionary
+        hemispheres = {}
+        browser.find_by_css('a.product-item h3')[i].click()
+        element = browser.find_link_by_text('Sample').first
+        img_url = element['href']
+        title = browser.find_by_css("h2.title").text
+        hemispheres["img_url"] = img_url
+        hemispheres["title"] = title
+        hemisphere_image_urls.append(hemispheres)
+        browser.back()
+    return hemisphere_image_urls
+    
 # Set up Splinter
 def scrape_all():
     # Initiate headless driver for deployment
@@ -13,7 +34,7 @@ def scrape_all():
 
     # Set our news title and paragraph variables
     news_title, news_paragraph = mars_news(browser)
-   
+    print(news_title)
     # Run all scraping functions and store results in dictionary
     data = {
         "news_title": news_title,
